@@ -10,10 +10,10 @@ import {
 
 const user = { _id: "jeff", role: "admin" };
 const Header = () => {
-  const { isOpen, setIsOpen } = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
-    <nav>
+    <nav className="header">
       <Link to={"/"}>Home</Link>
       <Link to={"/search"}>
         <FaSearch />
