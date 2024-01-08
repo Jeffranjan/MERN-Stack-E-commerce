@@ -7,10 +7,10 @@ const Search = lazy(() => import("./pages/Search"));
 const Cart = lazy(() => import("./pages/Cart"));
 
 // Admin Routes Importing
-const Dashboard = lazy(() => import("./pages/admin/dashboard"));
-const Products = lazy(() => import("./pages/admin/products"));
-const Customers = lazy(() => import("./pages/admin/customers"));
-const Transaction = lazy(() => import("./pages/admin/transaction"));
+const Dashboard = lazy(() => import("./pages/admin/Dashboard"));
+const Products = lazy(() => import("./pages/admin/Products"));
+const Customers = lazy(() => import("./pages/admin/Customers"));
+const Transaction = lazy(() => import("./pages/admin/Transaction"));
 const Barcharts = lazy(() => import("./pages/admin/charts/barcharts"));
 const Piecharts = lazy(() => import("./pages/admin/charts/piecharts"));
 const Linecharts = lazy(() => import("./pages/admin/charts/linecharts"));

@@ -14,17 +14,19 @@ const Header = () => {
 
   return (
     <nav className="header">
-      <Link to={"/"}>Home</Link>
-      <Link to={"/search"}>
+      <Link onClick={() => setIsOpen(false)} to={"/"}>
+        Home
+      </Link>
+      <Link onClick={() => setIsOpen(false)} to={"/search"}>
         <FaSearch />
       </Link>
-      <Link to={"/cart"}>
+      <Link onClick={() => setIsOpen(false)} to={"/cart"}>
         <FaShoppingBag />
       </Link>
 
       {user?._id ? (
         <>
-          <button onClick={() => setIsOpen((prev) => !prev)}>
+          <button>
             <FaUser />
           </button>
           <dialog open={isOpen}>
