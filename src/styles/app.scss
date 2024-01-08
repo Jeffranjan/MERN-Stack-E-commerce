@@ -10,6 +10,10 @@
   box-sizing: border-box;
 }
 
+body {
+  user-select: none;
+}
+
 a {
   text-decoration: none;
   color: black;
@@ -18,10 +22,6 @@ a {
 $color1: white;
 $color2: rgb(46, 46, 46);
 $color3: rgb(0, 104, 136);
-
-body {
-  user-select: none;
-}
 
 .red {
   color: red;
@@ -33,13 +33,17 @@ body {
   color: rgb(0, 195, 0);
 }
 
-@import "admin/mixin";
-
-@import "admin/dashboard";
-@import "admin/products";
-@import "admin/chart";
-@import "admin/dashboardapp";
-@import "admin/mediaquery";
+@import "admin-styles/mixin";
+@import "home";
+@import "cart";
+@import "shipping";
+@import "login";
+@import "search";
+@import "admin-styles/dashboard";
+@import "admin-styles/products";
+@import "admin-styles/chart";
+@import "admin-styles/dashboardapp";
+@import "admin-styles/mediaquery";
 
 .container {
   max-width: 1367px;
@@ -71,7 +75,8 @@ body {
       color: $color3;
     }
   }
-  k button {
+
+  button {
     border: none;
     font-size: 1.2rem;
     cursor: pointer;
@@ -268,7 +273,7 @@ body {
 
 .loader {
   width: 100%;
-  height: 100vh;
+  height: 85vh;
   @include flex;
   > div {
     @include square(10rem);
@@ -281,6 +286,20 @@ body {
   }
 }
 
+.skeleton-loader {
+  display: flex;
+  flex-direction: column;
+}
+
+.skeleton-shape {
+  height: 30px;
+  width: 100%;
+  background-color: #ddd;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  animation: skeleon-loading 1.5s infinite;
+}
+
 @keyframes loading-animation {
   to {
     transform: rotateZ(360deg);
@@ -289,5 +308,17 @@ body {
 @keyframes up-and-down {
   to {
     transform: translate(-50%, -20%);
+  }
+}
+
+@keyframes skeleon-loading {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
   }
 }
