@@ -12,6 +12,10 @@ const user = { _id: "jeff", role: "admin" };
 const Header = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
+  const LongoutHandler = () => {
+    setIsOpen(false);
+  };
+
   return (
     <nav className="header">
       <Link onClick={() => setIsOpen(false)} to={"/"}>
@@ -26,16 +30,20 @@ const Header = () => {
 
       {user?._id ? (
         <>
-          <button>
+          <button onClick={() => setIsOpen((prev) => !prev)}>
             <FaUser />
           </button>
           <dialog open={isOpen}>
             <div>
               {user.role === "admin" && (
-                <Link to={"/admin/dashboard"}>Admin</Link>
+                <Link onClick={() => setIsOpen(false)} to="/admin/dashboard">
+                  Admin
+                </Link>
               )}
-              <Link to={"/orders"}>Orders</Link>
-              <button>
+              <Link onClick={() => setIsOpen(false)} to="/orders">
+                Orders
+              </Link>
+              <button onClick={LongoutHandler}>
                 <FaSignOutAlt />
               </button>
             </div>
